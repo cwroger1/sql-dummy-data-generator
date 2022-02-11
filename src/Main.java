@@ -43,17 +43,20 @@ public class Main {
         for (int i = 0; i < 20; i++) {
             Vehicle vehicle = null;
             vehicle = new Vehicle("rand_cars.txt");
-            vehicle.createCar();
+            vehicle.createVehicle();
+            vehicle.createVIN();
 
             int ownerID = 1000 + i;
             String make = vehicle.getMake();
             String model = vehicle.getModel();
             String year = vehicle.getYear();
+            String VIN = vehicle.getVIN();
 
-            String line = "('" + ownerID + "', " +
+            String line = "('" + VIN + "', " +
+                    "'" + ownerID + "', " +
+                    "'" + year + "', " +
                     "'" + make + "', " +
-                    "'" + model + "', " +
-                    "'" + year + "'),\n";
+                    "'" + model + "'),\n";
 
             writer.write(line);
         }
