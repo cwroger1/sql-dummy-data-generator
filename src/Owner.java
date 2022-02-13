@@ -4,8 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.concurrent.ThreadLocalRandom;
 
-
-public class Owner{
+public class Owner {
 
     private String firstNamesList;
     private String lastNamesList;
@@ -33,7 +32,7 @@ public class Owner{
 
     public void setAddress() throws IOException {
         int randomNum = ThreadLocalRandom.current().nextInt(1, 50);
-        String streetNum = Integer.toString(ThreadLocalRandom.current().nextInt(1, 9999));
+        int streetNum = ThreadLocalRandom.current().nextInt(1, 9999);
         String streetName = Files.readAllLines(Paths.get("src/" + this.streetNamesList)).get(randomNum);
         this.address = streetNum + " " + streetName;
     }
@@ -42,7 +41,7 @@ public class Owner{
         int randomNum1= ThreadLocalRandom.current().nextInt(201, 990);
         int randomNum2 = ThreadLocalRandom.current().nextInt(100, 999);
         int randomNum3 = ThreadLocalRandom.current().nextInt(1000, 9999);
-        this.phone = randomNum1 + "-" + randomNum2 + "-" + randomNum3;
+        this.phone = randomNum1 + "" + randomNum2 + "" + randomNum3;
     }
 
     public String getPhone() {
