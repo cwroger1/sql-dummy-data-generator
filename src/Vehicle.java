@@ -1,4 +1,10 @@
-
+/*
+* Vehicle class for SER 322 dummy data generator.
+*
+* @author Chris Rogers
+* @version 2/12/2022
+*
+*/
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;

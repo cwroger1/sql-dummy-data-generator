@@ -1,4 +1,10 @@
-
+/*
+* Owner class for SER 322 dummy data generator.
+*
+* @author Chris Rogers
+* @version 2/12/2022
+*
+*/
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -45,18 +51,18 @@ public class Owner {
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
     public String getAddress() {
-        return address;
+        return this.address;
     }
 }
