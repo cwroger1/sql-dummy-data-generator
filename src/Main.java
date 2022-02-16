@@ -28,10 +28,12 @@ public class Main {
 
     public static void writeOwners(BufferedWriter writer) throws IOException{
 
-        writer.write("INSERT INTO 'OWNER' ('ownerId', 'firstName', 'lastName', " +
-                "'address', 'phoneNumber') VALUES\n");
+        writer.write("INSERT INTO OWNER (ownerId, firstName, lastName, " +
+                "address, phoneNumber) VALUES\n");
 
-        for (int i = 0; i < 20; i++) {
+        int numOwners = 20;
+
+        for (int i = 0; i < numOwners; i++) {
             Owner owner = new Owner("first_names.txt", "last_names.txt", "rand_street_names.txt");
             owner.setFirstName();
             owner.setLastName();
@@ -44,22 +46,27 @@ public class Main {
             String address = owner.getAddress();
             String phone = owner.getPhone();
 
-            String line = "('" + ownerID + "', " +
+            writer.write("('" + ownerID + "', " +
                     "'" + fName + "', " +
                     "'" + lName + "', " +
-                    "'" + address + "', " +
-                    "'" + phone + "'),\n";
+                    "'" + address + "', ");
+            if (i == numOwners-1) {
+                writer.write("'" + phone + "');\n");
+            } else {
+                writer.write("'" + phone + "'),\n");
+            }
 
-            writer.write(line);
         }
 
     }
 
     public static void writeVehicles(BufferedWriter writer) throws IOException {
-        writer.write("\nINSERT INTO 'VEHICLE' ('vinNumber', 'ownerId', 'year', " +
-                "'make', 'model') VALUES\n");
+        writer.write("\nINSERT INTO VEHICLE (vinNumber, ownerId, year, " +
+                "make, model) VALUES\n");
 
-        for (int i = 0; i < 20; i++) {
+        int numVehicles = 20;
+
+        for (int i = 0; i < numVehicles; i++) {
             Vehicle vehicle = new Vehicle("rand_cars.txt");
             vehicle.createVehicle();
             vehicle.createVIN();
@@ -70,22 +77,27 @@ public class Main {
             String year = vehicle.getYear();
             String VIN = vehicle.getVIN();
 
-            String line = "('" + VIN + "', " +
+            writer.write("('" + VIN + "', " +
                     "'" + ownerID + "', " +
                     "'" + year + "', " +
-                    "'" + make + "', " +
-                    "'" + model + "'),\n";
+                    "'" + make + "', ");
+            if (i == numVehicles-1) {
+                writer.write("'" + model + "');\n");
+            } else {
+                writer.write("'" + model + "'),\n");
+            }
 
-            writer.write(line);
         }
 
     }
 
     public static void writeEmployees(BufferedWriter writer) throws IOException {
-        writer.write("\nINSERT INTO 'EMPLOYEE' ('employeeId', 'role', 'status', " +
-                "'firstName', 'lastName') VALUES\n");
+        writer.write("\nINSERT INTO EMPLOYEE (employeeId, role, status, " +
+                "firstName, lastName) VALUES\n");
 
-        for (int i = 0; i < 15; i++) {
+        int numEmployees = 15;
+
+        for (int i = 0; i < numEmployees; i++) {
             Employee employee;
             // write mechanics (active)
             if (i > 2 && i < 11) {
@@ -109,13 +121,17 @@ public class Main {
             String role = employee.getRole();
             String status = employee.getStatus();
 
-            String line = "('" + employeeId + "', " +
+            writer.write("('" + employeeId + "', " +
                     "'" + role + "', " +
                     "'" + status + "', " +
-                    "'" + fName + "', " +
-                    "'" + lName + "'),\n";
+                    "'" + fName + "', ");
 
-            writer.write(line);
+            if (i == numEmployees-1) {
+                writer.write("'" + lName + "');\n");
+            } else {
+                writer.write("'" + lName + "'),\n");
+            }
+
         }
 
     }
