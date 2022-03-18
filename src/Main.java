@@ -1,5 +1,5 @@
 /*
-* Dummy data generator for SER 322 team project.
+* Dummy SQL data generator for an automotive maintenance database.
 *
 * @author Chris Rogers
 * @version 2/12/2022
@@ -33,8 +33,12 @@ public class Main {
 
         int numOwners = 20;
 
+        String firstNamesFile = "first_names.txt";
+        String lastNamesFile = "last_names.txt";
+        String streetNamesFile = "rand_street_names.txt";
+
         for (int i = 0; i < numOwners; i++) {
-            Owner owner = new Owner("first_names.txt", "last_names.txt", "rand_street_names.txt");
+            Owner owner = new Owner(firstNamesFile, lastNamesFile, streetNamesFile);
             owner.setFirstName();
             owner.setLastName();
             owner.setAddress();
@@ -66,8 +70,10 @@ public class Main {
 
         int numVehicles = 20;
 
+        String carsFile = "rand_cars.txt";
+
         for (int i = 0; i < numVehicles; i++) {
-            Vehicle vehicle = new Vehicle("rand_cars.txt");
+            Vehicle vehicle = new Vehicle(carsFile);
             vehicle.createVehicle();
             vehicle.createVIN();
 
@@ -97,20 +103,23 @@ public class Main {
 
         int numEmployees = 15;
 
+        String firstNamesFile = "first_names.txt";
+        String lastNamesFile = "last_names.txt";
+
         for (int i = 0; i < numEmployees; i++) {
             Employee employee;
             // write mechanics (active)
             if (i > 2 && i < 11) {
-                employee = new Employee("first_names.txt", "last_names.txt", "M", "A");
+                employee = new Employee(firstNamesFile, lastNamesFile, "M", "A");
             } else if (i > 10 && i < 13) {
                 // write mechanics (on leave)
-                employee = new Employee("first_names.txt", "last_names.txt", "M", "L");
+                employee = new Employee(firstNamesFile, lastNamesFile, "M", "L");
             } else if (i > 12) {
                 // write mechanics (terminated)
-                employee = new Employee("first_names.txt", "last_names.txt", "M", "T");
+                employee = new Employee(firstNamesFile, lastNamesFile, "M", "T");
             } else {
                 // write advisors
-                employee = new Employee("first_names.txt", "last_names.txt", "A", "A");
+                employee = new Employee(firstNamesFile, lastNamesFile, "A", "A");
             }
             employee.setFirstName();
             employee.setLastName();
