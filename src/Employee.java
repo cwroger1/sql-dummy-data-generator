@@ -1,5 +1,5 @@
 /*
-* Employee class for SER 322 dummy data generator.
+* Employee class for dummy data generator.
 *
 * @author Chris Rogers
 * @version 2/12/2022
